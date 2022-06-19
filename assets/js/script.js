@@ -4,6 +4,11 @@ var taskFormHandler = function (event) {
   event.preventDefault();
   var taskNameInput = document.querySelector("input[name='task-name']").value;
   var taskTypeInput = document.querySelector("select[name='task-type']").value;
+  if (!taskNameInput || !taskTypeInput) {
+    alert("Please select a name and a type!");
+    return false;
+  }
+  formE1.reset();
   var taskDataObj = {
     name: taskNameInput,
     type: taskTypeInput,
@@ -14,7 +19,7 @@ var createTaskE1 = function (taskDataObj) {
   var listItemE1 = document.createElement("li");
   listItemE1.className = "task-item";
   var taskInfoE1 = document.createElement("div");
-  taskInfoE1.className = "task-item";
+  taskInfoE1.className = "task-info";
   taskInfoE1.innerHTML =
     "<h3 class='task-name'>" +
     taskDataObj.name +
